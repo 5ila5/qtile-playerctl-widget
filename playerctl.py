@@ -79,6 +79,8 @@ class Playerctl(base._TextBox):
         
         width = self.icon_width[0] + add_icons * (self.icon_width[1] +self.distance)
         width +=  (self.icon_height +self.distance) if self.show_player_icon else 0
+        if self.player==[]:
+            width=0
         icon_order=self.icon_order
         icon_width=list(self.icon_width)
         #icon_width=self.icon_width
@@ -168,6 +170,7 @@ class Playerctl(base._TextBox):
 
  
 
+        #logger.warning("width:"+str(width))
 
         return width
 
