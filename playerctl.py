@@ -170,7 +170,6 @@ class Playerctl(base._TextBox):
 
  
 
-        #logger.warning("width:"+str(width))
 
         return width
 
