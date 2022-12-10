@@ -41,6 +41,7 @@ class Playerctl(base._TextBox):
         
         ("default_icon","~/Pictures/not_found.png","Default icon if no icon for the given Application found"),
 
+        ("showVolume",True,"show Playervolume like the Volume Widget"), #pactl list short clients |||| pactl list short sink-inputs
     ]
 
     def __init__(self, **config):
@@ -195,7 +196,7 @@ class Playerctl(base._TextBox):
         self.timeout_add(self.update_interval, self.update)
 
     def lookup_icon(self,name,search_name=""):
-        logger.warning("name:"+str(name)+" SearchName: "+str(search_name))
+        #logger.warning("name:"+str(name)+" SearchName: "+str(search_name))
         if search_name=="": search_name=name
         self.player_icons[name] = None
         self.player_icons[name] = getIconPath(search_name)
@@ -204,7 +205,7 @@ class Playerctl(base._TextBox):
 
 
     def update_player_icons(self):
-        logger.warning(str(self.app_player_icons))
+        #logger.warning(str(self.app_player_icons))
         #not_found_folder = find_img("not_found")
         if (not self.default_icon) or (not os.path.isfile(self.default_icon)):
             self.default_icon = None
@@ -223,7 +224,7 @@ class Playerctl(base._TextBox):
                 try:
                     img = cairocffi.ImageSurface.create_from_png(iconfile)
                 except cairocffi.Error:
-                    logger.exception('Error loading icon for application "%s" (%s)', img_name, iconfile)
+                    #logger.exception('Error loading icon for application "%s" (%s)', img_name, iconfile)
                     return
                 
                 input_width = img.get_width()
