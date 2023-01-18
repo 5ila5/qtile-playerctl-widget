@@ -48,7 +48,8 @@ class Playerctl(base._TextBox):
 
 
 
-        base._TextBox.__init__(self, '', **config)
+        #base._TextBox.__init__(self, '', **config)
+        super().__init__(**config)
 
         self.add_defaults(Playerctl.defaults)
         self.surfaces = {}
@@ -170,9 +171,10 @@ class Playerctl(base._TextBox):
 
 
  
+        logger.warning(f"WITH is {str(int(width))}")
 
 
-        return width
+        return int(width)
 
 
     def _configure(self, qtile, bar):
@@ -245,7 +247,8 @@ class Playerctl(base._TextBox):
 
     
 
-
+    def getLenth(self):
+        return self._length
         
 
     def button_press(self, x, y, button):
