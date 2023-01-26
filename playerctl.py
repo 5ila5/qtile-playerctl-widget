@@ -165,15 +165,6 @@ class Playerctl(base._TextBox):
         
         self.click_area = click_area
 
-
-
-        
-
-
- 
-        logger.warning(f"WITH is {str(int(width))}")
-
-
         return int(width)
 
 
